@@ -1,0 +1,11 @@
+<div class="user-list" *ngIf="users">
+  <div *ngFor="let user of users">
+    <p>
+      <strong>{{ user.first_name }}</strong>
+    </p>
+    <p>{{ user.email }}</p>
+    <img [src]="user.avatar" />
+    <fa-icon [icon]="faTrash" size="2x" (click)="deleteUser(user.id)"></fa-icon>
+    <a [routerLink]="['./', user.id]">Go to the details</a>
+  </div>
+</div>
