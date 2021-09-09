@@ -1,0 +1,36 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <a routerLink="/">
+      <h2 class="inactive underlineHover"> Войти </h2>
+    </a>
+    <a routerLink="/signup">
+      <h2 class=" active">Регистрация</h2>
+    </a>
+
+    <div class="fadeIn first">
+      <fa-icon [icon]="faUser"></fa-icon>
+    </div>
+
+    <form  (ngSubmit)="onSubmit()" [formGroup]="authForm">
+      <app-input inputType="email" label="E-mail" class="fadeIn second" [control]="getFieldControl('email')">
+      </app-input>
+      <app-input inputType="password" label="Пароль" class="fadeIn third" [control]="getFieldControl('password')">
+      </app-input>
+      <app-input inputType="password" label="Потдвердить пароль" class="fadeIn fourth"
+        [control]="getFieldControl('passwordConfirmation')">
+      </app-input>
+
+      <input type="submit" class="btn fadeIn fourth" value="Зарегистрироваться">
+    </form>
+
+    <div class="error-label"
+      *ngIf="getFieldControl('password').touched && getFieldControl('passwordConfirmation').touched && authForm.errors">
+      <p *ngIf="authForm.errors.passwordDontMatch">Пароли не совпадают</p>
+
+      <p *ngIf="authForm.errors.noConnection">Нет соединения</p>
+      <p *ngIf="authForm.errors.unknownError">Ошибка регистрации</p>
+    </div>
+    <fa-icon [spin]="true" [icon]="faSpinner" *ngIf="loading$ | async"></fa-icon>
+
+  </div>
+</div>

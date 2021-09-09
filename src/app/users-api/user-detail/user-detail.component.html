@@ -1,18 +1,39 @@
-<div>
-  <span>ID: </span>
-  <span>{{ user.id }}</span>
+<div class="container">
+  <div class="flex-container">
+    <div>
+      <div class="card">
+        <div class="card-body">
+          <div class="">
+            <img [src]="user.avatar" alt="User image" class="card-image" width="150" />
+            <div class="user-bio">
+              <h4>{{ user.first_name + ' ' + user.last_name }}</h4>
+              <p class="">{{ user.email }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="user-form">
+      <form action="#" class="" (ngSubmit)="onSubmit(user.id)" [formGroup]="userForm">
+        <div class="card-body">
+
+          <app-input class="" label="First Name" [control]="getFieldControl('firstName')"></app-input>
+          <app-input class="" label="Last Name" [control]="getFieldControl('lastName')"></app-input>
+          <app-input inputType="email" class="" label="Email" [control]="getFieldControl('email')"></app-input>
+
+
+          <div class="btn-container">
+            <ng-container *ngIf="!editMode">
+              <a class="button-link" (click)="toggleForm()">Изменить</a>
+              <a class="button-link" routerLink="..">Назад</a>
+            </ng-container>
+            <ng-container *ngIf="editMode">
+              <input type="submit" (click)="onSubmit(user.id)" class="button-link" value="Потдвердить">
+
+            </ng-container>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
-
-<div>
-  <span>First Name: </span>
-  <span>{{ user.first_name }}</span>
-</div>
-<div>
-  <span>Last Name: </span>
-  <span>{{ user.last_name }}</span>
-</div>
-
-
-
-
-<img [src]="user.avatar" />

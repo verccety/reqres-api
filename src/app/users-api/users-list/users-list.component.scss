@@ -1,16 +1,44 @@
 .user-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
-  > div {
-    margin: 0 1rem 2rem 1rem;
+  > figure {
+    margin: 0 1rem 2rem;
+    min-width: 12rem;
     text-align: center;
   }
+}
 
-  img {
-    display: inline-block;
-    max-width: 100%;
-  }
+.card-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+  padding: 1rem;
+  box-shadow: rgb(19 15 235 / 10%) 2px 4px 40px;
+}
+
+.card-content {
+  padding: 25px 25px 0;
+  height: 100%;
+}
+
+.card-title {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 32px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.delete-icon {
+  cursor: pointer;
+}
+
+.list {
+  text-align: center;
 }

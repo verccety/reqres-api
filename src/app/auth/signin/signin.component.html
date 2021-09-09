@@ -1,0 +1,31 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <a routerLink="/">
+      <h2 class="active"> Войти </h2>
+    </a>
+    <a routerLink="/signup">
+      <h2 class="inactive underlineHover">Регистрация </h2>
+    </a>
+
+    <div class="fadeIn first">
+      <fa-icon [icon]="faUser"></fa-icon>
+
+    </div>
+
+    <form (ngSubmit)="onSubmit()" [formGroup]="authForm">
+      <app-input inputType="email" class="fadeIn second" label="E-mail" [control]="getFieldControl('email')"></app-input>
+      <app-input inputType="password" label="Пароль" class="fadeIn third" [control]="getFieldControl('password')">
+      </app-input>
+      <input type="submit" class="btn fadeIn fourth" value="Войти">
+    </form>
+
+
+
+    <div *ngIf="authForm.errors" class="error-label">
+      <p *ngIf="authForm.errors.credentials">Неверные данные</p>
+    </div>
+    <fa-icon [spin]="true" [icon]="faSpinner" *ngIf="loading$ | async"></fa-icon>
+
+  </div>
+
+</div>

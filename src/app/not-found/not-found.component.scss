@@ -1,0 +1,22 @@
+.image-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70vh;
+}
+
+.image-container {
+  display: inline-block;
+  width: 40vh;
+  height: 40vh;
+  background-image: 'https://i.imgur.com/QIxIKBH.png';
+  background-position: center;
+  background-size: cover;
+}
+
+.image-text {
+  font-size: 28px;
+  color: #2f8e89;
+}

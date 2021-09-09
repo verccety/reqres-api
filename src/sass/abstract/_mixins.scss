@@ -1,0 +1,36 @@
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+@function base-font-size($pixels) {
+  @return percentage($pixels / 16px);
+}
+
+@mixin absCenter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == 1800px {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: $breakpoint / 16px * 1em) {
+      @content;
+    }
+  }
+}

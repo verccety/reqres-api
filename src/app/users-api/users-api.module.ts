@@ -5,6 +5,8 @@ import { UsersApiRoutingModule } from './users-api-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
   imports: [
     CommonModule,
     UsersApiRoutingModule,
-    FontAwesomeModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    SharedModule
   ],
   exports: [UsersListComponent]
 })

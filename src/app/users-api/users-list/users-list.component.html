@@ -1,11 +1,42 @@
-<div class="user-list" *ngIf="users">
-  <div *ngFor="let user of users">
-    <p>
-      <strong>{{ user.first_name }}</strong>
-    </p>
-    <p>{{ user.email }}</p>
-    <img [src]="user.avatar" />
-    <fa-icon [icon]="faTrash" size="2x" (click)="deleteUser(user.id)"></fa-icon>
-    <a [routerLink]="['./', user.id]">Go to the details</a>
+<div>
+  <div class="list">
+    <h2>Пользователи</h2>
+
+    <div class="user-list" *ngIf="users">
+      <figure class="card-container" *ngFor="let user of users">
+        <a [routerLink]="['./', user.id]">
+          <img class="card-image" [src]="user.avatar" /></a>
+        <div class="card-content">
+          <a class="card-title" [routerLink]="['./', user.id]">
+            {{ user.first_name }}</a>
+          <div>{{ user.email }}</div>
+          <div class="btn-container">
+            <a class="button-link" [routerLink]="['./', user.id]">Подробнее</a>
+          </div>
+        </div>
+
+        <fa-icon class="delete-icon" [icon]="faTrash" size="2x" (click)="deleteUser(user.id)"></fa-icon>
+        <!-- <fa-icon [icon]="faSpinner" *ngIf="loading$ | async"></fa-icon> -->
+
+      </figure>
+    </div>
+  </div>
+  <br/>
+  <div class="list">
+    <h2>Ресурсы</h2>
+    <div class="user-list" *ngIf="resourses">
+      <figure class="card-container" *ngFor="let resourse of resourses">
+        <div class="card-image" [style.background-color]="resourse.color"> <span>{{resourse.color}}</span></div>
+        <div class="card-content">
+          <a class="card-title">
+            {{ resourse.name }}</a>
+          <div>{{ resourse.pantone_value }}</div>
+
+        </div>
+
+
+
+      </figure>
+    </div>
   </div>
 </div>

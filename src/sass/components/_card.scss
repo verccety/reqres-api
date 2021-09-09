@@ -1,0 +1,59 @@
+.card-image {
+  position: relative;
+  margin: auto;
+  border-radius: 50%;
+  width: 128px;
+  height: 128px;
+
+  span {
+    @include absCenter;
+  }
+}
+
+.button-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  width: 10rem;
+  height: 35px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: unset;
+    color: rgb(255, 255, 255);
+    background-color: rgb(76, 15, 251);
+    text-decoration-thickness: 2px;
+  }
+}
+
+.error-label {
+  display: inline-block;
+  margin: 0 0.1414em;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  border: 1px solid rgb(34 36 38 / 15%);
+  border-color: rgb(219, 40, 40);
+  border-radius: 0.2857rem;
+  padding: 0.5833em 0.833em;
+  box-shadow: none;
+  font-weight: 700;
+  font-size: 0.857rem;
+  line-height: 1;
+  color: rgb(219, 40, 40);
+  background: none rgb(255, 255, 255);
+  transition: background 0.1s ease;
+
+  p {
+    margin: 0;
+  }
+}

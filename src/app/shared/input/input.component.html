@@ -1,0 +1,24 @@
+<div class="field">
+
+  <ng-container *ngIf="control">
+    <div class="form__group">
+      <label class="form__label">{{ label }}</label>
+      <input class="form__input" *ngIf="controlType === 'input'" [type]="inputType" [formControl]="control" />
+    </div>
+
+    <div *ngIf="showErrors()" class="error-label">
+      <p *ngIf="control.errors?.required">Обязательное поле</p>
+      <p *ngIf="control.errors?.email">Введите корректный e-mail</p>
+      <p *ngIf="control.errors?.minlength">
+        Значение длиной символов - {{ control.errors?.minlength.actualLength }} , минимальное -
+        {{ control.errors?.minlength.requiredLength }}
+      </p>
+      <p *ngIf="control.errors?.maxlength">
+        Значение длиной символов - {{ control.errors?.maxlength.actualLength }}, максимальное -
+        {{ control.errors?.maxlength.requiredLength }}
+      </p>
+      <p *ngIf="control.errors?.pattern">Некорректный формат</p>
+
+    </div>
+  </ng-container>
+</div>
